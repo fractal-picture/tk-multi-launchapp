@@ -231,6 +231,18 @@ class SoftwareEntityLauncher(BaseLauncher):
         # First, make sure to only include active entries.
         sw_filters = [["sg_status_list", "is", "act"]]
 
+        # run before launch hook
+        self._tk_app.log_debug("Running additional Software filters hook...")
+        additional_filters = self._tk_app.execute_hook_method(
+            "hook_additional_software_filters",
+            "get_additional_filters"
+        )
+        if additional_filters:
+            self._tk_app.log_debug("Filtering additional Software: %s" % additional_filters)
+            sw_filters.extend(additional_filters)
+        else:
+            self._tk_app.log_debug("No additional filters found")
+
         # If we've been asked to register all software, then we don't want to
         # filter anything out based on user or project restrictions.
         if not scan_all_projects:

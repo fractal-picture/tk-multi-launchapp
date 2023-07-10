@@ -195,6 +195,12 @@ configuration:
                       launcher should that be required. This hook's methods are only called
                       when Software entity launchers are being used."
 
+    hook_additional_software_filters:
+        type: hook
+        default_value: additional_software_filters
+        description: "This hook is called just before querying Software entity, additional filters can be specified.
+                      This hook's methods are only called when Software entity launchers are being used."
+
 # the Shotgun fields that this app needs in order to operate correctly
 requires_shotgun_fields:
 
