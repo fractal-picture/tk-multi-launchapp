@@ -16,6 +16,9 @@ App that launches applications.
 import sgtk
 
 
+__version__ = 'vv0.12.4'
+
+
 class LaunchApplication(sgtk.platform.Application):
     """
     Multi App to launch applications.
