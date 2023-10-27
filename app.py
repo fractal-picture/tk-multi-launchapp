@@ -16,7 +16,7 @@ App that launches applications.
 import sgtk
 
 
-__version__ = '0.12.4'
+__version__ = '0.12.05'
 
 
 class LaunchApplication(sgtk.platform.Application):
